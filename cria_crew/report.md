@@ -1,121 +1,367 @@
-## Report: Training Program Innovation: Removing Seat Limits in 2025
+## Analysis of JIRA Tickets Related to "seat training program"
 
-### Executive Summary
+### List of Found Tickets:
 
-This report examines the key trends and technologies that are enabling the removal of seat limits in training programs, transforming how organizations educate and develop their workforce. The shift towards unlimited capacity is driven by advancements in AI, cloud computing, virtual reality, and data analytics, coupled with innovative approaches to content delivery and learner engagement. This report provides a detailed overview of these trends, highlighting their impact on accessibility, personalization, and effectiveness of training initiatives.
+The following JIRA tickets are related to the "seat training program":
 
-### 1. AI-Powered Personalized Learning Paths
+*   **TPMS-9:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-9
+*   **TPMS-12:** Status: To Do | Priority: Low | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-12
+*   **TPMS-6:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-6
+*   **TPMS-7:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-7
+*   **TPMS-10:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-10
+*   **TPMS-8:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-8
+*   **TPMS-14:** Status: To Do | Priority: High | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-14
+*   **TPMS-15:** Status: To Do | Priority: High | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-15
+*   **TPMS-11:** Status: To Do | Priority: High | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-11
+*   **TPMS-13:** Status: To Do | Priority: Highest | Assignee: balaji Masal | Type: Task | URL: https://balajimasalincubxperts.atlassian.net/browse/TPMS-13
 
-The advent of Artificial Intelligence (AI) has revolutionized the approach to training programs. AI algorithms analyze individual learner's skills, knowledge gaps, and preferred learning styles to create personalized learning paths. This adaptive learning approach ensures that each participant receives tailored content and support, maximizing their learning outcomes.
+### Analysis of Ticket Patterns and Priorities:
 
-*   **Personalized Content Delivery:** AI curates relevant learning materials, recommending specific modules, articles, videos, and other resources based on the learner's profile and progress.
-*   **Adaptive Difficulty Levels:** AI algorithms adjust the difficulty of learning materials based on the learner's performance. If a learner struggles with a particular concept, the AI provides additional support and resources. Conversely, if a learner masters a concept quickly, the AI advances them to more challenging material.
-*   **Automated Feedback and Assessment:** AI-powered systems provide instant feedback on quizzes, assignments, and simulations, helping learners identify areas where they need to improve. Automated assessments track learner progress and identify potential knowledge gaps.
-*   **Scalability:** Personalized learning paths scale effectively because the AI handles the personalization process, reducing the need for manual intervention from instructors. This allows training programs to accommodate a large number of learners without sacrificing individual attention.
-*   **Real-world Example:** Consider a sales training program. An AI system might identify that one salesperson struggles with closing techniques while another needs help with prospecting. The AI would then provide each salesperson with targeted training modules and resources to address their specific needs.
+A detailed examination of the JIRA tickets reveals several key patterns and priority distributions.
 
-### 2. Scalable Cloud-Based Platforms Dominate
+*   **Common Assignee:** All tickets are assigned to "balaji Masal." This indicates that balaji Masal is the primary individual responsible for addressing and resolving tasks related to the "seat training program." This high concentration of tasks on a single assignee requires further investigation to ensure workload balance and prevent potential bottlenecks.
 
-The removal of seat limits is intrinsically linked to the adoption of highly scalable cloud-based platforms. These platforms provide the infrastructure necessary to support large-scale training programs with ease.
+*   **Status:** The status of all tickets is uniformly "To Do." This signifies that none of the identified tasks have been initiated or completed. This warrants an immediate review of the project's progress and potential impediments.
 
-*   **Unlimited Capacity:** Cloud platforms offer virtually unlimited storage and processing power, allowing them to handle massive concurrent user loads without performance degradation.
-*   **Global Accessibility:** Learners can access training materials from anywhere in the world, using any device with an internet connection. This eliminates geographical barriers and makes training accessible to a wider audience.
-*   **Robust Analytics:** Cloud platforms provide comprehensive analytics on learner progress, engagement, and performance. This data helps training administrators identify areas where learners are struggling and optimize training content.
-*   **Seamless Integration:** Many cloud-based training platforms integrate seamlessly with existing enterprise systems, such as HR systems, learning management systems (LMS), and customer relationship management (CRM) systems. This integration streamlines the training process and ensures that learner data is consistent across different systems.
-*   **Cost-Effectiveness:** Cloud platforms often operate on a subscription basis, which can be more cost-effective than traditional on-premise training infrastructure. Organizations only pay for the resources they use, and they don't have to invest in expensive hardware or software.
-*   **Example:** An organization implementing a new CRM system can train thousands of employees simultaneously using a cloud-based platform without worrying about server capacity or bandwidth limitations.
+*   **Priority Distribution:** The priority levels assigned to the tickets vary, reflecting differing degrees of urgency and importance. The distribution is as follows:
+    *   **Highest Priority:** TPMS-6, TPMS-7, TPMS-8, TPMS-9, TPMS-10, and TPMS-13. These tickets represent the most critical tasks that require immediate attention to avoid significant impact on the project timeline and objectives.
+    *   **High Priority:** TPMS-11, TPMS-14, and TPMS-15. These tasks are also important but can be addressed after the "Highest Priority" tasks are underway.
+    *   **Low Priority:** TPMS-12. This ticket represents a task of lesser urgency and importance, which can be scheduled based on resource availability and project dependencies.
 
-### 3. Virtual and Augmented Reality Integration
+*   **Type:** All tickets are classified as "Task." This suggests that these tickets represent actionable items that contribute directly to the completion of the "seat training program."
 
-Virtual Reality (VR) and Augmented Reality (AR) technologies are transforming training programs by providing immersive and engaging learning experiences. These technologies allow learners to practice skills in a safe and controlled environment, regardless of their location or the size of the training group.
+### Insights about Potential Relationships:
 
-*   **Immersive Simulations:** VR simulations can recreate real-world scenarios, such as operating complex machinery, performing surgical procedures, or handling customer service interactions. Learners can practice these skills in a virtual environment without the risk of making costly mistakes.
-*   **Interactive Learning:** AR overlays digital information onto the real world, providing learners with interactive instructions and guidance. For example, AR can be used to guide technicians through the steps of repairing a piece of equipment.
-*   **Enhanced Engagement:** VR and AR experiences are highly engaging and memorable, which can improve learner retention and motivation.
-*   **Safe and Controlled Environment:** VR and AR provide a safe environment for learners to practice skills that might be dangerous or costly to perform in the real world.
-*   **Scalability:** VR and AR training programs can be scaled easily to accommodate a large number of learners. Once a virtual simulation or AR application is developed, it can be deployed to thousands of users without significant additional cost.
-*   **Example:** A medical school can use VR simulations to train surgeons on complex procedures without the need for cadavers or live patients.
+Deeper analysis into the JIRA tickets suggests several potential relationships and dependencies.
 
-### 4. Microlearning and Just-In-Time Training
+*   **Project/Component:** The consistent "TPMS" prefix observed in all issue keys indicates that these tickets are likely associated with the same project or component within the JIRA system. Further investigation is needed to determine the specific nature and scope of "TPMS."
 
-Microlearning involves delivering training content in short, focused modules that learners can access when and where they need it. This approach is particularly effective in large-scale training programs, as it breaks down complex topics into manageable chunks and reduces cognitive overload. Just-in-time training provides learners with the information they need at the precise moment they need it.
+*   **Dependency:** Given that all tickets have a status of "To Do" and encompass a range of priorities, it is crucial to assess potential dependencies between tasks. Some tasks might be prerequisites for others, and delays in lower-priority tasks could potentially impede progress on higher-priority tasks. For instance, the low-priority ticket (TPMS-12) might represent an initial step or requirement that must be completed before higher-priority tasks can commence.
 
-*   **Bite-Sized Content:** Microlearning modules are typically 5-10 minutes in length and focus on a single learning objective. This makes it easier for learners to absorb and retain information.
-*   **Accessibility:** Microlearning modules can be accessed on any device, making it easy for learners to access training content on the go.
-*   **Relevance:** Just-in-time training ensures that learners receive the information they need at the precise moment they need it, making the learning experience more relevant and engaging.
-*   **Improved Retention:** Studies have shown that microlearning can improve learner retention by up to 80%.
-*   **Scalability:** Microlearning is highly scalable because it can be delivered to a large number of learners without significant additional cost.
-*   **Example:** A retail employee can access a short video on their mobile device that explains how to handle a specific customer complaint just before they interact with the customer.
+*   **Resource Allocation:** As all tasks are currently assigned to balaji Masal, it is essential to evaluate their current workload and capacity to effectively manage all assigned tasks. Prioritizing tasks and ensuring adequate time allocation are crucial, especially for those with "Highest" priority.
 
-### 5. Gamification and Collaborative Learning
+### Recommendations:
 
-Gamification involves incorporating game-like elements into training programs to motivate learners and foster a sense of competition. Collaborative learning involves creating opportunities for learners to interact with each other and share knowledge.
+Based on the analysis of the JIRA tickets, the following recommendations are proposed:
 
-*   **Points, Badges, and Leaderboards:** Gamification elements such as points, badges, and leaderboards can be used to reward learners for completing training modules, participating in discussions, and achieving learning objectives.
-*   **Challenges and Competitions:** Training programs can incorporate challenges and competitions to motivate learners and foster a sense of competition.
-*   **Discussion Forums:** Discussion forums provide a platform for learners to ask questions, share ideas, and collaborate on projects.
-*   **Group Projects:** Group projects allow learners to work together to solve problems and apply their knowledge.
-*   **Peer-to-Peer Mentoring:** Peer-to-peer mentoring programs connect learners with more experienced colleagues who can provide guidance and support.
-*   **Increased Engagement:** Gamification and collaborative learning can significantly increase learner engagement and motivation.
-*   **Improved Knowledge Sharing:** Collaborative learning fosters knowledge sharing and helps learners learn from each other.
-*   **Example:** A customer service training program might incorporate a leaderboard that ranks learners based on their performance on customer service simulations. Learners could also participate in group projects to develop solutions to common customer service challenges.
+1.  **Review Ticket Details:** Conduct a thorough review of each ticket's description to gain a comprehensive understanding of the specific tasks involved. Identify any potential dependencies between tasks and assess the resources required for each task.
 
-### 6. Advanced Analytics and Predictive Modeling
+2.  **Re-Prioritize:** Evaluate the priority assigned to the low-priority ticket (TPMS-12). If it is determined that this task is a prerequisite for higher-priority tasks, consider re-evaluating and adjusting its priority accordingly.
 
-Data analytics plays a crucial role in optimizing training programs without seat limits. Analytics tools track learner progress, identify areas where learners are struggling, and provide insights into the effectiveness of different training methods. Predictive modeling is used to forecast future learning needs and personalize training recommendations.
+3.  **Balance Workload:** Assess balaji Masal's current workload and ensure they have the capacity to effectively handle all assigned tasks. If necessary, consider reassigning tasks to other team members to distribute the workload and avoid bottlenecks.
 
-*   **Learner Progress Tracking:** Analytics tools track learner progress through training modules, quizzes, and assessments. This data helps training administrators identify learners who are struggling and provide them with additional support.
-*   **Performance Analysis:** Analytics tools analyze learner performance to identify areas where learners are excelling and areas where they need to improve. This data helps training administrators tailor training content to meet the specific needs of learners.
-*   **Effectiveness Measurement:** Analytics tools measure the effectiveness of different training methods by tracking learner engagement, retention, and performance. This data helps training administrators optimize training programs for maximum impact.
-*   **Predictive Modeling:** Predictive modeling is used to forecast future learning needs and personalize training recommendations. For example, predictive modeling can be used to identify employees who are likely to benefit from a specific training program.
-*   **Personalized Recommendations:** Based on data analysis, systems can provide personalized training recommendations to learners, ensuring they focus on the most relevant and impactful content.
-*   **Example:** A sales organization can use analytics to identify that sales representatives in a particular region are struggling with a specific product. The organization can then create a targeted training program to address this knowledge gap.
+4.  **Establish Workflow:** Implement a clear workflow for managing the tickets. As work progresses on each task, update the ticket status from "To Do" to "In Progress" and eventually "Done." This will provide a clear and up-to-date view of the project's progress.
 
-### 7. Focus on Accessibility and Inclusivity
+## Detailed Code Analysis Report
 
-Removing seat limits has significantly increased access to training opportunities for individuals from diverse backgrounds and locations. Programs are designed with accessibility in mind, providing options for learners with disabilities, offering content in multiple languages, and ensuring that technology is compatible with a wide range of devices.
+### List of Relevant Code Snippets with File Locations
 
-*   **Assistive Technologies:** Training programs are designed to be compatible with assistive technologies, such as screen readers and voice recognition software, to accommodate learners with disabilities.
-*   **Multiple Languages:** Training content is offered in multiple languages to ensure that learners from diverse backgrounds can access and understand the material.
-*   **Mobile Compatibility:** Training programs are designed to be accessible on a wide range of devices, including smartphones, tablets, and laptops.
-*   **Culturally Relevant Content:** Training content is designed to be culturally relevant and sensitive to the needs of learners from different backgrounds.
-*   **Diverse Representation:** Training materials include diverse representation to ensure that all learners feel included and valued.
-*   **Example:** An international organization offers its training programs in multiple languages and ensures that its training materials are accessible to learners with disabilities.
+The following code snippets are relevant to the training program management system:
 
-### 8. Increased Emphasis on Soft Skills and Emotional Intelligence
+*   **src\app\dashboard\employee\page.tsx:** This file is responsible for displaying waitlisted trainings to employees and notifying them when seats become available. It also handles fetching enrolled and waitlisted trainings for the employee dashboard.
 
-As automation and AI transform the workplace, training programs increasingly focus on developing soft skills such as communication, collaboration, critical thinking, and emotional intelligence. These skills are essential for success in the modern workplace and are often delivered through interactive workshops, simulations, and role-playing exercises.
+*   **src\app\page.tsx:** This file provides a general description of the training management solution.
 
-*   **Communication Skills:** Training programs focus on developing effective communication skills, including verbal communication, written communication, and active listening.
-*   **Collaboration Skills:** Training programs focus on developing collaboration skills, including teamwork, conflict resolution, and negotiation.
-*   **Critical Thinking Skills:** Training programs focus on developing critical thinking skills, including problem-solving, decision-making, and analytical skills.
-*   **Emotional Intelligence:** Training programs focus on developing emotional intelligence, including self-awareness, self-regulation, empathy, and social skills.
-*   **Interactive Workshops:** Interactive workshops provide learners with opportunities to practice soft skills in a safe and supportive environment.
-*   **Simulations and Role-Playing:** Simulations and role-playing exercises allow learners to apply their soft skills in realistic scenarios.
-*   **Example:** A leadership development program focuses on developing communication, collaboration, and emotional intelligence skills through interactive workshops and simulations.
+*   **src\app\attendance\page.tsx:** This file handles functionalities related to training attendance, such as recording and managing attendance records.
 
-### 9. Hybrid Training Models Emerge
+*   **src\app\enrollment\page.tsx:** This file manages training enrollments, allowing users to enroll in available training programs.
 
-Many organizations are adopting hybrid training models that combine online learning with in-person workshops or coaching sessions. This approach allows for the flexibility and scalability of online learning, while also providing opportunities for face-to-face interaction and personalized support. These models are especially effective for complex topics or skills that require hands-on practice.
+*   **src\app\dashboard\hr\page.tsx:** This file displays training information to HR personnel, providing them with an overview of the training programs.
 
-*   **Blended Learning:** Hybrid training models combine online learning with in-person instruction.
-*   **Flexibility and Scalability:** Online learning provides flexibility and scalability, allowing learners to access training content at their own pace and on their own schedule.
-*   **Personalized Support:** In-person workshops and coaching sessions provide learners with personalized support and guidance.
-*   **Hands-On Practice:** In-person sessions provide opportunities for learners to practice skills in a hands-on environment.
-*   **Community Building:** Hybrid training models can foster a sense of community among learners.
-*   **Example:** A technical training program combines online modules with in-person lab sessions to provide learners with both theoretical knowledge and practical experience.
+*   **src\app\trainings\create\page.tsx:** This file allows HR administrators to create new training programs. It includes functionalities for setting the maximum number of seats available for each training.
 
-### 10. AI-Driven Mentorship and Support Systems
+*   **src\app\trainings\page.tsx:** This file presents the interface for managing training programs, providing HR administrators with tools to oversee and control training programs.
 
-AI-powered chatbots and virtual assistants provide learners with instant access to support and guidance. These systems can answer questions, provide feedback, and connect learners with mentors or subject matter experts. This personalized support helps to address individual needs and ensures that learners receive the assistance they need to succeed in programs without seat limits.
+*   **src\app\api\enrollments\route.ts:** This file manages the backend logic for creating enrollments and handling waitlisting. It likely contains the core logic for enforcing seat limits and managing the enrollment process.
 
-*   **Instant Support:** AI-powered chatbots and virtual assistants provide learners with instant access to support and guidance.
-*   **Question Answering:** These systems can answer questions on a wide range of topics.
-*   **Feedback Provision:** AI-powered systems can provide feedback on learner performance.
-*   **Mentor Connection:** These systems can connect learners with mentors or subject matter experts.
-*   **Personalized Guidance:** AI-driven mentorship systems can provide personalized guidance to learners based on their individual needs and goals.
-*   **Example:** An online learning platform uses an AI-powered chatbot to answer learner questions and provide feedback on assignments.
+### Identification of Potential Issues or Improvements
 
-### Conclusion
+The code analysis has identified several potential issues and areas for improvement:
 
-The removal of seat limits in training programs represents a significant advancement in workforce development. By leveraging AI, cloud technology, VR/AR, and innovative learning methodologies, organizations can now deliver personalized, engaging, and accessible training to a virtually unlimited number of learners. This transformation is critical for preparing the workforce for the challenges and opportunities of the future. Continuous monitoring, data analysis, and adaptation of training programs are essential to ensure their ongoing effectiveness and relevance.
+1.  **Lack of Explicit Schema Definition:** The absence of a direct schema definition file can make it more difficult to understand the data model and increases the risk of data inconsistencies. Incorporating a well-defined schema into the documentation would be beneficial.
+
+2.  **Hardcoded Status Values:** The status values ('ENROLLED', 'WAITLISTED', 'DRAFT', 'PUBLISHED') appear to be hardcoded strings. Consider using a dedicated enum type in both the database schema and the code to enhance type safety and maintainability.
+
+3.  **Potential Race Condition:** The enrollment logic in `src\app\api\enrollments\route.ts` may be susceptible to a race condition. If multiple users attempt to enroll simultaneously when the training is nearly full, it is possible that more users than `maxSeats` could be enrolled. Implementing a database-level locking mechanism could prevent this.
+
+4.  **Missing Error Handling:** The `src\app\api\enrollments\route.ts` file includes some error handling (e.g., checking for existing enrollments and training status), but it could be more comprehensive. Consider adding more specific error messages and logging for debugging purposes.
+
+5.  **Scalability:** The current implementation appears to fetch all enrollments for a training program when determining if it is full. For popular training programs with a large number of enrollments, this could become inefficient. Consider using a more efficient query that only counts the number of enrolled users.
+
+6.  **Notification Handling:** The code sends enrollment confirmation and waitlist update emails. Ensure that these emails are sent asynchronously to prevent blocking the enrollment process. Additionally, consider implementing retry logic for failed email sends.
+
+7.  **Test Coverage:** The absence of test cases highlights a significant area for improvement. Comprehensive test coverage is crucial for ensuring the reliability and stability of the training program management system.
+
+### Relationships Between Different Code Components
+
+The different code components interact with each other to provide the overall functionality of the training program management system.
+
+*   The front-end components (e.g., `src\app\dashboard\employee\page.tsx`, `src\app\enrollment\page.tsx`) display training information and enrollment status to users.
+
+*   The `src\app\trainings\create\page.tsx` component enables HR administrators to create new training programs, defining key details such as seat limits and training schedules.
+
+*   The `src\app\api\enrollments\route.ts` file handles the backend logic for enrolling users in training programs and managing the waitlist, enforcing seat limits and ensuring data consistency.
+
+*   The Prisma client is used to interact with the database, performing CRUD operations on training programs and enrollments.
+
+## Software Requirements Specification (SRS) for Training Program Management System (TPMS)
+
+### 1. Introduction
+
+#### 1.1 Purpose
+
+This Software Requirements Specification (SRS) outlines the functional and non-functional requirements for the development of a comprehensive Training Program Management System (TPMS) intended for organizational use. The goal is to provide an efficient platform for Human Resources (HR) departments to plan, publish, monitor, and evaluate training programs while enabling employees to enroll in relevant sessions, track attendance, provide feedback, and obtain training certifications.
+
+#### 1.2 Intended Audience
+
+*   HR Managers and Administrators
+*   Organizational Employees
+*   Trainers and Facilitators (optional)
+*   Developers and Technical Architects
+*   Quality Assurance Team
+*   UX/UI Designers
+*   System Administrators
+
+#### 1.3 Scope
+
+This system will include the following core functionalities:
+
+*   Creation and management of training programs by HR.
+*   Enrollment by employees with seat limits and waitlist functionality.
+*   Attendance tracking capabilities.
+*   Automated and manual feedback collection mechanisms.
+*   Evaluation and rating system for trainers.
+*   Certificate issuance post-training completion.
+*   Dashboards for monitoring and reporting (customized for HR and employees).
+
+#### 1.4 Definitions, Acronyms, and Abbreviations
+
+*   HR: Human Resources
+*   TPMS: Training Program Management System
+*   UI: User Interface
+*   DB: Database
+*   API: Application Programming Interface
+
+### 2. Functional Requirements
+
+#### 2.1 User Roles and Permissions
+
+##### 2.1.1 HR Admin
+
+*   Full access to all training management features.
+*   Access to user records, attendance data, feedback, and certificates.
+*   Access to HR-specific dashboards and reporting features.
+
+##### 2.1.2 Employee
+
+*   Access to enroll in training programs.
+*   Ability to view attendance records.
+*   Ability to submit feedback.
+*   Ability to download certificates.
+
+##### 2.1.3 Trainer (Optional)
+
+*   View assigned training sessions.
+*   Access feedback related to their sessions.
+
+#### 2.2 HR Admin Functionalities
+
+##### 2.2.1 Training Program Management
+
+*   Create training sessions with:
+    *   Title
+    *   Description
+    *   Trainer(s)
+    *   Start/End Date & Time
+    *   Mode (Online/Offline/Hybrid)
+    *   Location (if applicable)
+    *   Duration
+    *   Seat Limit
+    *   Tags (e.g., Technical, Soft Skills)
+*   Edit or delete draft/unpublished programs.
+*   Publish training programs to notify employees via email.
+*   Clone previously created training sessions for reuse.
+
+##### 2.2.2 Enrollment Management
+
+*   View lists of enrolled and waitlisted employees.
+*   Manually approve/reject or transfer employees between enrolled and waitlist.
+*   Set enrollment start/end periods.
+*   Lock training session from new enrollments after deadline.
+*   Export enrollment list to Excel or PDF.
+
+##### 2.2.3 Attendance Management
+
+*   Record attendance manually or upload via CSV.
+*   Lock attendance after final submission.
+*   Mark employees as present, absent, or excused.
+
+##### 2.2.4 Feedback Collection and Trainer Rating
+
+*   Define custom feedback questions (ratings + comments).
+*   Set automated feedback reminders.
+*   View aggregated feedback statistics per session or trainer.
+*   Calculate average trainer ratings and generate performance reports.
+
+##### 2.2.5 Certificate Issuance
+
+*   Generate and email PDF certificates to attendees.
+*   Customize certificate templates with logo, signature, etc.
+*   View certificate issue logs.
+
+##### 2.2.6 HR Dashboard
+
+*   Key Metrics:
+    *   Total trainings conducted
+    *   Enrollment rates
+    *   Attendance percentages
+    *   Feedback summary
+    *   Certificate issuance count
+*   Filter by time period, department, trainer
+
+#### 2.3 Employee Functionalities
+
+##### 2.3.1 Training Discovery and Enrollment
+
+*   Browse available training programs.
+*   Apply filters by topic, date, trainer, location.
+*   View training details.
+*   Enroll in programs (seats permitting).
+*   Waitlist logic automatically activates when capacity is full.
+*   Cancel enrollment before training begins.
+
+##### 2.3.2 Attendance and Feedback
+
+*   View own attendance records.
+*   Submit feedback forms after training.
+*   Receive reminders via email and dashboard notifications.
+
+##### 2.3.3 Certificates
+
+*   View list of completed trainings.
+*   Download certificates as PDF.
+*   Verify certificate authenticity (optional QR code or unique ID).
+
+##### 2.3.4 Employee Dashboard
+
+*   Upcoming enrolled sessions
+*   History of past trainings
+*   Attendance stats
+*   Certificates received
+*   Feedback submissions
+
+### 3. Non-Functional Requirements
+
+#### 3.1 Usability
+
+*   Responsive design compatible with mobile, tablet, and desktop.
+*   Consistent navigation and modern UI/UX.
+*   Accessibility compliant (WCAG 2.1).
+
+#### 3.2 Performance
+
+*   Support for 10,000+ concurrent users.
+*   Email notifications sent within 60 seconds of triggering events.
+*   Feedback forms must load within 2 seconds.
+
+#### 3.3 Security
+
+*   Role-based access control (RBAC).
+*   Secure password storage (e.g., bcrypt).
+*   Data encryption for personal records and certificates.
+*   Audit trail for key operations.
+*   OTP verification for email links (optional).
+
+#### 3.4 Integration
+
+*   SMTP or Mail API for email dispatch.
+*   LDAP or SSO integration with employee directory.
+*   Optional integration with internal HRMS.
+
+#### 3.5 Maintainability & Scalability
+
+*   Microservices or modular monolith architecture.
+*   Support for future module extensions.
+*   RESTful APIs or GraphQL support for integration.
+*   Containerized deployment (Docker + Kubernetes-ready).
+
+### 4. Data Requirements
+
+#### 4.1 Tables and Attributes
+
+##### 4.1.1 Users Table
+
+*   ID
+*   Name
+*   Email
+*   Role
+*   Department
+*   Password Hash
+*   Status
+
+##### 4.1.2 TrainingPrograms Table
+
+*   ID
+*   Title
+*   Description
+*   Trainer
+*   DateTime
+*   Mode
+*   Location
+*   SeatLimit
+*   Published
+*   Status
+*   CreatedBy
+
+##### 4.1.3 Enrollments Table
+
+*   ID
+*   ProgramID
+*   EmployeeID
+*   Status (Enrolled/Waitlisted)
+*   Timestamp
+
+##### 4.1.4 Attendance Table
+
+*   ID
+*   ProgramID
+*   EmployeeID
+*   AttendanceStatus
+*   DateMarked
+
+##### 4.1.5 Feedback Table
+
+*   ID
+*   ProgramID
+*   EmployeeID
+*   Rating (1-5)
+*   Comments
+*   DateSubmitted
+
+##### 4.1.6 Certificates Table
+
+*   ID
+*   ProgramID
+*   EmployeeID
+*   CertificateLink
+*   IssueDate
+
+##### 4.1.7 NotificationLogs Table
+
+*   ID
+*   Type (Enrollment/Feedback/Certificate)
+*   RecipientID
+*   SentAt
+*   Status
+
+### 5. Workflow Summary
+
+1.  HR Admin creates and publishes a training program.
+2.  Email notification is automatically sent to all employees.
+3.  Employees view the training list and enroll.
+4.  If seats are full, the employee is placed on the waitlist.
+5.  HR records attendance after the session.
+6.  System automatically sends feedback form to attendees.
+7.  Employees submit feedback; trainer ratings are calculated.
+8.  Certificates are issued to attendees who were present and submitted feedback.
+9.  HR and employees view respective dashboards.
