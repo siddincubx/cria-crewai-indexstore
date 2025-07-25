@@ -1,11 +1,24 @@
+import os
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from .tools.custom_tool import JiraTicketSearchTool
+from .tools.custom_tool import JiraTicketSearchTool, CodeBaseSearchTool
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+
+from dotenv import load_dotenv
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable is not set.")
+
+from crewai import LLM
+gem_llm = LLM(
+    model="gemini-2.0-flash",
+    api_key=GEMINI_API_KEY
+)
 
 @CrewBase
 class CriaCrew():
@@ -34,13 +47,23 @@ class CriaCrew():
             verbose=True
         )
 
+    # @agent
+    # def jira_specialist(self) -> Agent:
+    #     return Agent(
+    #         config=self.agents_config['jira_specialist'], # type: ignore[index]
+    #         tools=[JiraTicketSearchTool()],
+    #         verbose=True
+    #     )
+
     @agent
-    def jira_specialist(self) -> Agent:
+    def codebase_specialist(self) -> Agent:
         return Agent(
-            config=self.agents_config['jira_specialist'], # type: ignore[index]
-            tools=[JiraTicketSearchTool()],
+            config=self.agents_config['codebase_specialist'], # type: ignore[index]
+            tools=[CodeBaseSearchTool()],
             verbose=True
         )
+    
+    
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -58,10 +81,16 @@ class CriaCrew():
             output_file='report.md'
         )
 
+    # @task
+    # def jira_search_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config['jira_search_task'], # type: ignore[index]
+    #     )
+
     @task
-    def jira_search_task(self) -> Task:
+    def codebase_analysis_task(self) -> Task:
         return Task(
-            config=self.tasks_config['jira_search_task'], # type: ignore[index]
+            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
         )
 
     @crew
@@ -75,5 +104,6 @@ class CriaCrew():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            chat_llm=gem_llm
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )

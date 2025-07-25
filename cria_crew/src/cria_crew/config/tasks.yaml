@@ -16,16 +16,30 @@ reporting_task:
     Formatted as markdown without '```'
   agent: reporting_analyst
 
-jira_search_task:
+# jira_search_task:
+#   description: >
+#     Search for relevant JIRA tickets related to {query}. Use the JIRA Ticket Search tool 
+#     to find tickets that are semantically similar to the query. Analyze the results and 
+#     provide insights about the tickets found, including patterns, priorities, and potential 
+#     relationships between tickets.
+#   expected_output: >
+#     A comprehensive analysis of relevant JIRA tickets including:
+#     - List of found tickets with summaries
+#     - Analysis of ticket patterns and priorities  
+#     - Insights about potential relationships
+#     - Recommendations based on the ticket analysis
+#   agent: jira_specialist
+
+codebase_analysis_task:
   description: >
-    Search for relevant JIRA tickets related to {query}. Use the JIRA Ticket Search tool 
-    to find tickets that are semantically similar to the query. Analyze the results and 
-    provide insights about the tickets found, including patterns, priorities, and potential 
-    relationships between tickets.
+    Analyze the codebase to find relevant code snippets related to {query}. Use the Code Base Search tool
+    to find code that is semantically similar to the query. Examine the code structure, patterns, 
+    and provide insights about the implementation, potential issues, and improvement opportunities.
   expected_output: >
-    A comprehensive analysis of relevant JIRA tickets including:
-    - List of found tickets with summaries
-    - Analysis of ticket patterns and priorities  
-    - Insights about potential relationships
-    - Recommendations based on the ticket analysis
-  agent: jira_specialist
+    A detailed code analysis report including:
+    - List of relevant code snippets with file locations
+    - Analysis of code patterns and architecture
+    - Identification of potential issues or improvements
+    - Code quality assessment and recommendations
+    - Relationships between different code components
+  agent: codebase_specialist

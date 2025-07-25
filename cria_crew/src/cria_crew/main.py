@@ -18,8 +18,8 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'what can you tell me about "dashboard feature"',
-        'query': 'dashboard feature',
+        'topic': 'remove seat limit from training program',
+        'query': 'seat, training, program',
         'current_year': str(datetime.now().year)
     }
     
