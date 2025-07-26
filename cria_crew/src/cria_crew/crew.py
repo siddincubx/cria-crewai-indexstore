@@ -3,7 +3,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-
+from datetime import datetime
 from .tools.jira_rag_tool import JiraSearchTool
 from .tools.custom_tool import CodeBaseSearchTool
 from .tools.confluence_rag_tool import ConfluenceRAGTool
@@ -14,6 +14,7 @@ from .tools.confluence_rag_tool import ConfluenceRAGTool
 from dotenv import load_dotenv
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is not set.")
 
@@ -47,18 +48,18 @@ class CriaCrew():
         )
 
     @agent
-    def codebase_specialist(self) -> Agent:
-        return Agent(
-            config=self.agents_config['codebase_specialist'], # type: ignore[index]
-            tools=[CodeBaseSearchTool()],
-            verbose=True
-        )
-
-    @agent
     def confluence_specialist(self) -> Agent:
         return Agent(
             config=self.agents_config['confluence_specialist'], # type: ignore[index]
             tools=[ConfluenceRAGTool()],
+            verbose=True
+        )
+
+    @agent
+    def codebase_specialist(self) -> Agent:
+        return Agent(
+            config=self.agents_config['codebase_specialist'], # type: ignore[index]
+            tools=[CodeBaseSearchTool()],
             verbose=True
         )
 
@@ -76,22 +77,23 @@ class CriaCrew():
         )
 
     @task
-    def codebase_analysis_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
-        )
-
-    @task
     def confluence_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
         )
 
     @task
+    def codebase_analysis_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
+        )
+
+    @task
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            context=[self.jira_search_task(), self.codebase_analysis_task(), self.confluence_search_task()]
+            context=[self.jira_search_task(), self.codebase_analysis_task(), self.confluence_search_task()],
+            output_file=f'report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.md'
         )
 
     @crew
@@ -105,5 +107,8 @@ class CriaCrew():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
-            chat_llm=gem_llm            
+            chat_llm=LLM(
+                model="gpt-4o",
+                api_key=OPENAI_API_KEY
+            )
         )
