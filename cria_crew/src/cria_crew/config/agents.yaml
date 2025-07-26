@@ -36,9 +36,9 @@ confluence_specialist:
 
 reporting_analyst:
   role: >
-    {topic} Reporting Analyst
+    Project Manager Reporting Analyst
   goal: >
-    Create detailed findings in {topic} with focus on clarity with strict 
+    Create detailed findings in {query} with focus on clarity with strict 
     adherence to output schema format.
   backstory: >
     You're a strict formatter with a intense love for following rules. You're known for

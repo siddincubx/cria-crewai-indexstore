@@ -25,6 +25,16 @@ gem_llm = LLM(
     api_key=GEMINI_API_KEY
 )
 
+
+import panel as pn
+
+chat_interface = pn.chat.ChatInterface()
+
+from crewai.tasks.task_output import TaskOutput
+def print_output(output: TaskOutput):
+    message = output.raw
+    chat_interface.send(message, user=output.agent, respond=False)
+
 @CrewBase
 class CriaCrew():
     """CriaCrew crew"""
@@ -74,18 +84,21 @@ class CriaCrew():
     def jira_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
+            callback=print_output
         )
 
     @task
     def confluence_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
+            callback=print_output
         )
 
     @task
     def codebase_analysis_task(self) -> Task:
         return Task(
             config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
+            callback=print_output,
         )
 
     @task
@@ -93,7 +106,10 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
             context=[self.jira_search_task(), self.codebase_analysis_task(), self.confluence_search_task()],
+            human_input=True,
+            callback=print_output,
             output_file=f'report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.md'
+            
         )
 
     @crew
