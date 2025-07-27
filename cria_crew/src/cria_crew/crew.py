@@ -24,9 +24,6 @@ if not GEMINI_API_KEY:
 from crewai import LLM
 # Must precede any llm module imports
 
-from langtrace_python_sdk import langtrace
-
-langtrace.init(api_key = 'b85f89560c55c77ab65eee14d289957e46043db150e89637834f395eee0b0691')
 from langfuse._client.get_client import get_client
 
 langfuse = get_client()
