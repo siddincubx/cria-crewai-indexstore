@@ -28,15 +28,21 @@ def code_to_embedding(
     #     )
     # )
     # return text.transform(
-    #     cocoindex.functions.SentenceTransformerEmbed(
-    #         model="sentence-transformers/all-MiniLM-L6-v2"
+    #     cocoindex.functions.EmbedText(
+    #         api_type=cocoindex.LlmApiType.OPENAI,
+    #         model="text-embedding-3-small",
     #     )
     # )
     return text.transform(
         cocoindex.functions.SentenceTransformerEmbed(
-            model="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+            model="sentence-transformers/all-MiniLM-L6-v2"
         )
     )
+    # return text.transform(
+    #     cocoindex.functions.SentenceTransformerEmbed(
+    #         model="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    #     )
+    # )
 
 @cocoindex.flow_def(name="CodeEmbedding")
 def code_embedding_flow(

@@ -22,24 +22,29 @@ if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is not set.")
 
 from crewai import LLM
+# Must precede any llm module imports
+
+from langtrace_python_sdk import langtrace
+
+langtrace.init(api_key = 'b85f89560c55c77ab65eee14d289957e46043db150e89637834f395eee0b0691')
+from langfuse._client.get_client import get_client
+
+langfuse = get_client()
 
 gem_llm = LLM(
     model="gemini/gemini-2.0-flash-lite",
     api_key=GEMINI_API_KEY
 )
-# from langfuse._client.get_client import get_client
 
-# langfuse = get_client()
-
-# import openlit
-# openlit.init(tracer=langfuse.get_trace_url())
-# openlit.init(disable_batch=True)
+import openlit
+openlit.init(tracer=langfuse.get_trace_url())
+openlit.init(disable_batch=True)
 
 # Verify connection
-# if langfuse.auth_check():
-#     print("Langfuse client is authenticated and ready!")
-# else:
-#     print("Authentication failed. Please check your credentials and host.")
+if langfuse.auth_check():
+    print("Langfuse client is authenticated and ready!")
+else:
+    print("Authentication failed. Please check your credentials and host.")
 
 import panel as pn
 
@@ -69,6 +74,8 @@ class CriaCrew():
         return Agent(
             config=self.agents_config['jira_specialist'], # type: ignore[index]
             tools=[JiraSearchTool()],
+            max_rpm=3,
+            max_iter=2,
             verbose=True
         )
 
@@ -77,16 +84,20 @@ class CriaCrew():
         return Agent(
             config=self.agents_config['confluence_specialist'], # type: ignore[index]
             tools=[ConfluenceRAGTool()],
+            max_rpm=3,
+            max_iter=2,
             verbose=True
         )
 
-    # @agent
-    # def codebase_specialist(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['codebase_specialist'], # type: ignore[index]
-    #         tools=[CodeBaseSearchTool()],
-    #         verbose=True
-    #     )
+    @agent
+    def codebase_specialist(self) -> Agent:
+        return Agent(
+            config=self.agents_config['codebase_specialist'], # type: ignore[index]
+            tools=[CodeBaseSearchTool()],
+            max_rpm=3,
+            max_iter=2,
+            verbose=True
+        )
 
     @agent
     def reporting_analyst(self) -> Agent:
@@ -100,7 +111,7 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
             output_pydantic=JiraOutputSchema,
-            async_execution=True
+            # async_execution=True
             # callback=print_output
         )
 
@@ -109,24 +120,28 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
             output_pydantic=ConfluenceOutputSchema,
-            async_execution=True
+            # async_execution=True
             # callback=print_output
         )
 
-    # @task
-    # def codebase_analysis_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
-    #         output_pydantic=CodeBaseAnalysis,
-    #         async_execution=True
-    #     )
+    @task
+    def codebase_analysis_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
+            output_pydantic=CodeBaseAnalysis,
+            # callback=print_output,
+            # async_execution=True
+        )
 
     @task
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            context=[self.jira_search_task(), self.confluence_search_task()], # type: ignore[index]
-            output_pydantic=FinalOutputSchema         
+            context=[self.jira_search_task(), self.confluence_search_task(), self.codebase_analysis_task()], # type: ignore[index]
+            output_pydantic=FinalOutputSchema,
+            # callback=print_output,
+            # output_file="report.md",
+            # markdown=True    
         )
 
     @crew
