@@ -4,7 +4,7 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from datetime import datetime
-from cria_crew.data_models.schema import ConfluenceOutputSchema, FinalOutputSchema, JiraOutputSchema
+from cria_crew.data_models.schema import CodeBaseAnalysis, ConfluenceOutputSchema, FinalOutputSchema, JiraOutputSchema
 from cria_crew.tools.file_writer import FileWriterTool
 from .tools.jira_rag_tool import JiraSearchTool
 from .tools.custom_tool import CodeBaseSearchTool
@@ -80,13 +80,13 @@ class CriaCrew():
             verbose=True
         )
 
-    # @agent
-    # def codebase_specialist(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['codebase_specialist'], # type: ignore[index]
-    #         tools=[CodeBaseSearchTool()],
-    #         verbose=True
-    #     )
+    @agent
+    def codebase_specialist(self) -> Agent:
+        return Agent(
+            config=self.agents_config['codebase_specialist'], # type: ignore[index]
+            tools=[CodeBaseSearchTool()],
+            verbose=True
+        )
 
     @agent
     def reporting_analyst(self) -> Agent:
@@ -111,18 +111,20 @@ class CriaCrew():
             # callback=print_output
         )
 
-    # @task
-    # def codebase_analysis_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
-    #         callback=print_output,
-    #     )
+    @task
+    def codebase_analysis_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
+            output_pydantic=CodeBaseAnalysis
+            # callback=print_output,
+
+        )
 
     @task
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            context=[self.jira_search_task(), self.confluence_search_task()], # type: ignore[index]
+            context=[self.jira_search_task(), self.confluence_search_task(), self.codebase_analysis_task()], # type: ignore[index]
             output_pydantic=FinalOutputSchema         
         )
 

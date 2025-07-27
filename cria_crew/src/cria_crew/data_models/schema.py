@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Dict, Any, Union
+from typing import List, Dict, Any, Optional, Union
 
 
 class JiraTicket(BaseModel):
@@ -35,7 +35,7 @@ class ConfluencePage(BaseModel):
     Represents a Confluence page with its details.
     """
     page_title: str = Field(..., description="The title of the Confluence page.")
-    page_url: str = Field(..., description="The URL to access the Confluence page.")
+    page_url: Optional[str] = Field(..., description="The URL to access the Confluence page. None if not present.")
     page_content: str = Field(..., description="The content of the Confluence page.")
 
 class ConfluenceOutputSchema(BaseModel):
@@ -51,9 +51,25 @@ class ConfluenceOutputSchema(BaseModel):
         description="Analysis of the Confluence pages, if applicable."
     )
 
+class CodeBaseFile(BaseModel):
+    """
+    Represents a file in the codebase.
+    """
+    filename: str = Field(..., description="The name or full path of the file.")
+    start: int = Field(..., description="The starting line number of the code snippet.")
+    end: int = Field(..., description="The ending line number of the code snippet.")
+    snippet: str = Field(..., description="The code snippet of the file.")
+
+class CodeBaseAnalysis(BaseModel):
+    """
+    Represents the analysis of a codebase.
+    """
+    analysis: str = Field(..., description="Identification of issue and relationships between components")
+    files: List[CodeBaseFile] = Field(default_factory=list, description="List of files analyzed in the codebase.")
+
 class SourceItem(BaseModel):
-    source: str = Field(..., description="The source of the item (e.g., 'JIRA', 'Confluence').")
-    content: List[Union[ConfluencePage,JiraTicket]] = Field(..., description="The content of the item.")
+    source: str = Field(..., description="The source of the item (e.g., 'JIRA', 'Confluence', 'Codebase').")
+    content: List[Union[ConfluenceOutputSchema,JiraOutputSchema,CodeBaseAnalysis]] = Field(..., description="The content of the item.")
 
 
 class FinalOutputSchema(BaseModel):
