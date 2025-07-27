@@ -6,6 +6,7 @@ import numpy as np
 from numpy.typing import NDArray
 from pgvector.psycopg import register_vector
 from crewai.tools import BaseTool
+from sqlalchemy import text
 
 @cocoindex.op.function()
 def extract_extension(filename: str) -> str:
@@ -20,15 +21,20 @@ def code_to_embedding(
     Embed the text using a SentenceTransformer model.
     """
     # You can also switch to Voyage embedding model:
-    #    return text.transform(
-    #        cocoindex.functions.EmbedText(
-    #            api_type=cocoindex.LlmApiType.VOYAGE,
-    #            model="voyage-code-3",
-    #        )
-    #    )
+    # return text.transform(
+    #     cocoindex.functions.EmbedText(
+    #         api_type=cocoindex.LlmApiType.VOYAGE,
+    #         model="voyage-code-3",
+    #     )
+    # )
+    # return text.transform(
+    #     cocoindex.functions.SentenceTransformerEmbed(
+    #         model="sentence-transformers/all-MiniLM-L6-v2"
+    #     )
+    # )
     return text.transform(
         cocoindex.functions.SentenceTransformerEmbed(
-            model="sentence-transformers/all-MiniLM-L6-v2"
+            model="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
         )
     )
 
@@ -39,9 +45,11 @@ def code_embedding_flow(
     """
     Define an example flow that embeds files into a vector database.
     """
+    my_file_path = "C:/Projects/hackathon_cria/training-management-system"
+    ec2_file_path = "~/cria-crew-indexstore/training-management-system"
     data_scope["files"] = flow_builder.add_source(
         cocoindex.sources.LocalFile(
-            path="C:/Projects/hackathon_cria/training-management-system",
+            path=ec2_file_path,
             included_patterns=["*.js", "*.py", "*.json", "*.ts", "*.tsx", "*.rs", "*.toml", "*.md", "*.mdx"],
             excluded_patterns=[".*", "*.config.json", "target", "**/node_modules"])
     )

@@ -41,9 +41,11 @@ def code_embedding_flow(
     """
     Define an example flow that embeds files into a vector database.
     """
+    my_file_path = "C:/Projects/hackathon_cria/training-management-system"
+    ec2_file_path = "~/cria-crew-indexstore/training-management-system"
     data_scope["files"] = flow_builder.add_source(
         cocoindex.sources.LocalFile(
-            path="C:/Projects/hackathon_cria/training-management-system",
+            path=my_file_path,
             included_patterns=["*.js", "*.py", "*.json", "*.ts", "*.tsx", "*.rs", "*.toml", "*.md", "*.mdx"],
             excluded_patterns=[".*", "*.config.json", "target", "**/node_modules"])
     )

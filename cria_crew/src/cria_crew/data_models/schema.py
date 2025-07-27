@@ -53,18 +53,35 @@ class ConfluenceOutputSchema(BaseModel):
         description="Analysis of the Confluence pages, if applicable."
     )
 
+class CodeBaseFile(BaseModel):
+    """
+    Represents a file in the codebase.
+    """
+    filename: str = Field(..., description="The name or full path of the file.")
+    start: int = Field(..., description="The starting line number of the code snippet.")
+    end: int = Field(..., description="The ending line number of the code snippet.")
+    snippet: str = Field(..., description="The code snippet of the file.")
+
+class CodeBaseAnalysis(BaseModel):
+    """
+    Represents the analysis of a codebase.
+    """
+    analysis: str = Field(..., description="Identification of issue and relationships between components")
+    files: List[CodeBaseFile] = Field(default_factory=list, description="List of files analyzed in the codebase.")
+
+
 class SourceItem(BaseModel):
     source: str = Field(..., description="The source of the item (e.g., 'JIRA', 'Confluence').")
-    content: List[Union[ConfluencePage,JiraTicket]] = Field(..., description="The content of the item.")
+    content: List[Union[ConfluencePage,JiraTicket,CodeBaseFile]] = Field(..., description="The content of the item.")
 
 
 class FinalOutputSchema(BaseModel):
     """
-    Final output schema that combines JIRA and Confluence outputs.
+    Final output schema that combines JIRA, Confluence and codebase outputs.
     """
     output: List[SourceItem] = Field(
         default_factory=list,
-        description="Combined output from JIRA and Confluence searches."
+        description="Combined output from JIRA, Confluence and codebase searches."
     )
     analysis: str = Field(
         default="",
