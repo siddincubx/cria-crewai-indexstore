@@ -29,6 +29,8 @@ class JiraSearchTool(BaseTool):
             text_parts = []
             if metadata.get('summary'):
                 text_parts.append(f"Summary: {metadata['summary']}")
+            if metadata.get('text'):
+                text_parts.append(f"Text: {metadata['text']}")
             if metadata.get('status'):
                 text_parts.append(f"Status: {metadata['status']}")
             if metadata.get('priority'):
@@ -37,12 +39,6 @@ class JiraSearchTool(BaseTool):
                 text_parts.append(f"Assignee: {metadata['assignee']}")
             if metadata.get('issue_type'):
                 text_parts.append(f"Type: {metadata['issue_type']}")
-            if metadata.get('components'):
-                components = metadata['components']
-                if isinstance(components, list):
-                    text_parts.append(f"Components: {', '.join(components)}")
-                else:
-                    text_parts.append(f"Components: {components}")
             if metadata.get('ticket_url'):
                 text_parts.append(f"URL: {metadata['ticket_url']}")
             

@@ -6,7 +6,7 @@ jira_search_task:
     relationships between tickets.
   expected_output: >
     A comprehensive analysis of relevant JIRA tickets including:
-    - List of found tickets with summaries
+    - List of found tickets
     - Analysis of ticket patterns and priorities  
     - Insights about potential relationships
   agent: jira_specialist

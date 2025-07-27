@@ -99,7 +99,8 @@ class CriaCrew():
     def jira_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
-            output_pydantic=JiraOutputSchema
+            output_pydantic=JiraOutputSchema,
+            async_execution=True
             # callback=print_output
         )
 
@@ -107,7 +108,8 @@ class CriaCrew():
     def confluence_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
-            output_pydantic=ConfluenceOutputSchema
+            output_pydantic=ConfluenceOutputSchema,
+            async_execution=True
             # callback=print_output
         )
 

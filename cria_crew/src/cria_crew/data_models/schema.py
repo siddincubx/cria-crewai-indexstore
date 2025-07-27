@@ -1,5 +1,6 @@
+import datetime
 from pydantic import BaseModel, Field
-from typing import List, Dict, Any, Union
+from typing import List, Dict, Any, Optional, Union
 
 
 class JiraTicket(BaseModel):
@@ -8,6 +9,7 @@ class JiraTicket(BaseModel):
     """
     key: str = Field(..., description="The unique identifier for the JIRA ticket.")
     summary: str = Field(..., description="A brief summary of the JIRA ticket.")
+    text: str = Field(..., description="The detailed description of the JIRA ticket.")
     ticket_url: str = Field(..., description="The URL to access the JIRA ticket.")
     status: str = Field(..., description="The current status of the JIRA ticket.")
     assignee: str = Field(..., description="The user assigned to the JIRA ticket.")
@@ -35,7 +37,7 @@ class ConfluencePage(BaseModel):
     Represents a Confluence page with its details.
     """
     page_title: str = Field(..., description="The title of the Confluence page.")
-    page_url: str = Field(..., description="The URL to access the Confluence page.")
+    page_url: Optional[str] = Field(..., description="The URL to access the Confluence page.")
     page_content: str = Field(..., description="The content of the Confluence page.")
 
 class ConfluenceOutputSchema(BaseModel):
