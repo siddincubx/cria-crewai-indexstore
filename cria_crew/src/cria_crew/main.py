@@ -6,10 +6,18 @@ import asyncio
 from datetime import datetime
 import uvicorn
 from cria_crew.crew import CriaCrew
+import argparse
 
 
 app = FastAPI(title="CRIA API", description="API for the CRIA Crew")
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='CRIA API Server')
+    parser.add_argument('--host', type=str, default='0.0.0.0', help='Host to bind the server to')
+    parser.add_argument('--port', type=int, default=80, help='Port to bind the server to')
+    return parser.parse_args()
 
+# Initialize arguments at module level to be available to the start_server function
+args = parse_arguments()
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -49,10 +57,17 @@ async def process_query(request: QueryRequest):
 async def health_check():
     return {"status": "healthy"}
 
-def start_server(host="0.0.0.0", port=80):
+def start_server(host="0.0.0.0", port=8080):
     uvicorn.run(app, host=host, port=port)
 
 if __name__ == "__main__":
+    # Get args passed from command line
+    args = parse_arguments()
+    # Use the host and port from command line arguments
+    host = args.host
+    port = args.port
+    # Start the server with these parameters
+    start_server(host=host, port=port)
     start_server()
 
 
