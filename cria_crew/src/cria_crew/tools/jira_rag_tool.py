@@ -49,5 +49,5 @@ class JiraSearchTool(BaseTool):
             context_text = f"Issue {metadata.get('key', 'Unknown')}: " + " | ".join(text_parts)
             context_texts.append(context_text)
         if not context_texts:
-            return "No relevant Jira issues found."
+            return ""
         return "\n\n".join(context_texts)

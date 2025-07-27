@@ -47,11 +47,7 @@ reporting_task:
     DO NOT Summarize information. Numerical information should be preserved in its original form.
   expected_output: >
     A fully fledged report with the main topics, each with a full section of information.
-    Take context from codebase analysis, and show the relevant code snippets.
     Take context from JIRA search, and show the relevant tickets.
     Take context from Confluence search, and show the relevant documentation.
     Formatted as markdown without '```'
   agent: reporting_analyst
-  output_file: >
-    report.md
-  

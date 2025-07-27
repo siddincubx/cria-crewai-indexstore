@@ -4,6 +4,8 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from datetime import datetime
+from cria_crew.data_models.schema import ConfluenceOutputSchema, FinalOutputSchema, JiraOutputSchema
+from cria_crew.tools.file_writer import FileWriterTool
 from .tools.jira_rag_tool import JiraSearchTool
 from .tools.custom_tool import CodeBaseSearchTool
 from .tools.confluence_rag_tool import ConfluenceRAGTool
@@ -25,19 +27,19 @@ gem_llm = LLM(
     model="gemini/gemini-2.0-flash-lite",
     api_key=GEMINI_API_KEY
 )
-from langfuse._client.get_client import get_client
+# from langfuse._client.get_client import get_client
 
-langfuse = get_client()
+# langfuse = get_client()
 
-import openlit
+# import openlit
+# openlit.init(tracer=langfuse.get_trace_url())
+# openlit.init(disable_batch=True)
 
-openlit.init()
- 
 # Verify connection
-if langfuse.auth_check():
-    print("Langfuse client is authenticated and ready!")
-else:
-    print("Authentication failed. Please check your credentials and host.")
+# if langfuse.auth_check():
+#     print("Langfuse client is authenticated and ready!")
+# else:
+#     print("Authentication failed. Please check your credentials and host.")
 
 import panel as pn
 
@@ -97,14 +99,16 @@ class CriaCrew():
     def jira_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
-            callback=print_output
+            output_pydantic=JiraOutputSchema
+            # callback=print_output
         )
 
     @task
     def confluence_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
-            callback=print_output
+            output_pydantic=ConfluenceOutputSchema
+            # callback=print_output
         )
 
     # @task
@@ -118,9 +122,8 @@ class CriaCrew():
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            context=[self.jira_search_task(), self.confluence_search_task()],
-            human_input=True,
-            callback=print_output            
+            context=[self.jira_search_task(), self.confluence_search_task()], # type: ignore[index]
+            output_pydantic=FinalOutputSchema         
         )
 
     @crew
