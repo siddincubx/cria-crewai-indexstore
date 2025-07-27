@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is not set.")
 
@@ -24,7 +25,19 @@ gem_llm = LLM(
     model="gemini/gemini-2.0-flash-lite",
     api_key=GEMINI_API_KEY
 )
+from langfuse._client.get_client import get_client
 
+langfuse = get_client()
+
+import openlit
+
+openlit.init()
+ 
+# Verify connection
+if langfuse.auth_check():
+    print("Langfuse client is authenticated and ready!")
+else:
+    print("Authentication failed. Please check your credentials and host.")
 
 import panel as pn
 
@@ -65,13 +78,13 @@ class CriaCrew():
             verbose=True
         )
 
-    @agent
-    def codebase_specialist(self) -> Agent:
-        return Agent(
-            config=self.agents_config['codebase_specialist'], # type: ignore[index]
-            tools=[CodeBaseSearchTool()],
-            verbose=True
-        )
+    # @agent
+    # def codebase_specialist(self) -> Agent:
+    #     return Agent(
+    #         config=self.agents_config['codebase_specialist'], # type: ignore[index]
+    #         tools=[CodeBaseSearchTool()],
+    #         verbose=True
+    #     )
 
     @agent
     def reporting_analyst(self) -> Agent:
@@ -94,22 +107,20 @@ class CriaCrew():
             callback=print_output
         )
 
-    @task
-    def codebase_analysis_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
-            callback=print_output,
-        )
+    # @task
+    # def codebase_analysis_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
+    #         callback=print_output,
+    #     )
 
     @task
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            context=[self.jira_search_task(), self.codebase_analysis_task(), self.confluence_search_task()],
+            context=[self.jira_search_task(), self.confluence_search_task()],
             human_input=True,
-            callback=print_output,
-            output_file=f'report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.md'
-            
+            callback=print_output            
         )
 
     @crew

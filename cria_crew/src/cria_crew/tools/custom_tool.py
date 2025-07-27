@@ -93,7 +93,7 @@ class CodeBaseSearchTool(BaseTool):
         cocoindex.init(
             cocoindex.Settings(
                 database=cocoindex.DatabaseConnectionSpec(
-                    url="postgres://cocoindex:cocoindex@localhost/cocoindex"
+                    url="postgres://postgres:postgresDoctor@cria-cocoindex-cluster.c5o4mgsmkcvz.us-east-2.rds.amazonaws.com/master"
                 )
             )
         )
@@ -101,7 +101,7 @@ class CodeBaseSearchTool(BaseTool):
         table_name = cocoindex.utils.get_target_default_name(
             code_embedding_flow, "code_embeddings"
         )
-        pool = ConnectionPool("postgres://cocoindex:cocoindex@localhost/cocoindex")
+        pool = ConnectionPool("postgres://postgres:postgresDoctor@cria-cocoindex-cluster.c5o4mgsmkcvz.us-east-2.rds.amazonaws.com/master")
         # Evaluate the transform flow defined above with the input query, to get the embedding.
         query_vector = code_to_embedding.eval(query)
         # Run the query and get the results.
