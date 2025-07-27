@@ -49,7 +49,7 @@ async def process_query(request: QueryRequest):
 async def health_check():
     return {"status": "healthy"}
 
-def start_server(host="0.0.0.0", port=8000):
+def start_server(host="0.0.0.0", port=80):
     uvicorn.run(app, host=host, port=port)
 
 if __name__ == "__main__":
