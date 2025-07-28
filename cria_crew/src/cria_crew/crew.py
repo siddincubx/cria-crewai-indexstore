@@ -150,7 +150,6 @@ class CriaCrew():
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
-            verbose=True,
             chat_llm=LLM(
                 model="gpt-4o",
                 api_key=OPENAI_API_KEY
