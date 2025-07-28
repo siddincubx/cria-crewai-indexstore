@@ -33,15 +33,15 @@ gem_llm = LLM(
     api_key=GEMINI_API_KEY
 )
 
-import openlit
-openlit.init(tracer=langfuse.get_trace_url())
-openlit.init(disable_batch=True)
+# import openlit
+# openlit.init(tracer=langfuse.get_trace_url())
+# openlit.init(disable_batch=True)
 
-# Verify connection
-if langfuse.auth_check():
-    print("Langfuse client is authenticated and ready!")
-else:
-    print("Authentication failed. Please check your credentials and host.")
+# # Verify connection
+# if langfuse.auth_check():
+#     print("Langfuse client is authenticated and ready!")
+# else:
+#     print("Authentication failed. Please check your credentials and host.")
 
 import panel as pn
 
@@ -109,7 +109,7 @@ class CriaCrew():
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
             output_pydantic=JiraOutputSchema,
             # async_execution=True
-            # callback=print_output
+            callback=print_output
         )
 
     @task
@@ -118,7 +118,7 @@ class CriaCrew():
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
             output_pydantic=ConfluenceOutputSchema,
             # async_execution=True
-            # callback=print_output
+            callback=print_output
         )
 
     @task
@@ -126,7 +126,7 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
             output_pydantic=CodeBaseAnalysis,
-            # callback=print_output,
+            callback=print_output,
             # async_execution=True
         )
 
@@ -135,10 +135,10 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
             context=[self.jira_search_task(), self.confluence_search_task(), self.codebase_analysis_task()], # type: ignore[index]
-            output_pydantic=FinalOutputSchema,
-            # callback=print_output,
+            # output_pydantic=FinalOutputSchema,
+            callback=print_output,
             # output_file="report.md",
-            # markdown=True    
+            markdown=True    
         )
 
     @crew
