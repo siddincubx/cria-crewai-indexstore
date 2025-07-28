@@ -187,6 +187,8 @@
 
 ######### PANEL INTERFACE #########
 import os
+
+import dotenv
 from dotenv import load_dotenv
 import panel as pn
 
@@ -261,3 +263,9 @@ chat_interface.send(
 
 # Make it servable
 chat_interface.servable()
+def start_panel():
+    pn.serve(chat_interface, show=True, port=5006)
+
+if __name__ == "__main__":
+    # Start Panel server
+    start_panel()

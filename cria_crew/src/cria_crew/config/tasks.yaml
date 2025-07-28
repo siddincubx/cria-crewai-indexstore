@@ -49,6 +49,7 @@ reporting_task:
     A fully fledged report with the main topics, each with a full section of information.
     Take context from JIRA search, and show the relevant tickets.
     Take context from Confluence search, and show the relevant documentation.
+    Take context from Code search, and show only the relevant snippets.
     Formatted as markdown without '```'
   agent: reporting_analyst
   output_file: >
