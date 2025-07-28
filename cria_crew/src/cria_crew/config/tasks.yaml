@@ -27,18 +27,18 @@ confluence_search_task:
     - Relationships between different documentation pieces
   agent: confluence_specialist
 
-# codebase_analysis_task:
-#   description: >
-#     Based on the context given from jira_search_task and confluence_search_task, find keywords related to {query} and 
-#     analyze the codebase to find relevant code snippets related to {query}. Use the Code Base Search tool
-#     to find code that is semantically similar to the query. Examine the code structure, patterns, 
-#     and provide insights about the implementation, potential issues, and improvement opportunities.
-#   expected_output: >
-#     A detailed code analysis report including:
-#     - List of relevant code snippets with file locations
-#     - Identification of potential issues or improvements
-#     - Relationships between different code components
-#   agent: codebase_specialist
+codebase_analysis_task:
+  description: >
+    Based on the context given from jira_search_task and confluence_search_task, find keywords related to {query} and 
+    analyze the codebase to find relevant code snippets related to {query}. Use the Code Base Search tool
+    to find code that is semantically similar to the query. Examine the code structure, patterns, 
+    and provide insights about the implementation, potential issues, and improvement opportunities.
+  expected_output: >
+    A detailed code analysis report including:
+    - List of relevant code snippets with file locations
+    - Identification of potential issues or improvements
+    - Relationships between different code components
+  agent: codebase_specialist
 
 reporting_task:
   description: >
@@ -51,3 +51,5 @@ reporting_task:
     Take context from Confluence search, and show the relevant documentation.
     Formatted as markdown without '```'
   agent: reporting_analyst
+  output_file: >
+    report.md
