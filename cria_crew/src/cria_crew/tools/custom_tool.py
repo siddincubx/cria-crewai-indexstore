@@ -55,7 +55,7 @@ def code_embedding_flow(
     ec2_file_path = "~/cria-crew-indexstore/training-management-system"
     data_scope["files"] = flow_builder.add_source(
         cocoindex.sources.LocalFile(
-            path=my_file_path,
+            path=ec2_file_path,
             included_patterns=["*.js", "*.py", "*.json", "*.ts", "*.tsx", "*.rs", "*.toml", "*.md", "*.mdx"],
             excluded_patterns=[".*", "*.config.json", "target", "**/node_modules"])
     )
