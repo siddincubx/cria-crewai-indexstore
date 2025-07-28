@@ -24,24 +24,25 @@ if not GEMINI_API_KEY:
 from crewai import LLM
 # Must precede any llm module imports
 
-from langfuse._client.get_client import get_client
+# from langfuse._client.get_client import get_client
 
-langfuse = get_client()
+# langfuse = get_client()
+
+# import openlit
+# openlit.init(tracer=langfuse.get_trace_url())
+# openlit.init(disable_batch=True)
+
+# # Verify connection
+# if langfuse.auth_check():
+#     print("Langfuse client is authenticated and ready!")
+# else:
+#     print("Authentication failed. Please check your credentials and host.")
+
 
 gem_llm = LLM(
     model="gemini/gemini-2.0-flash-lite",
     api_key=GEMINI_API_KEY
 )
-
-import openlit
-openlit.init(tracer=langfuse.get_trace_url())
-openlit.init(disable_batch=True)
-
-# Verify connection
-if langfuse.auth_check():
-    print("Langfuse client is authenticated and ready!")
-else:
-    print("Authentication failed. Please check your credentials and host.")
 
 import panel as pn
 
@@ -73,7 +74,6 @@ class CriaCrew():
             tools=[JiraSearchTool()],
             max_rpm=3,
             max_iter=2,
-            verbose=True
         )
 
     @agent
@@ -83,7 +83,6 @@ class CriaCrew():
             tools=[ConfluenceRAGTool()],
             max_rpm=3,
             max_iter=2,
-            verbose=True
         )
 
     @agent
