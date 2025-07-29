@@ -50,7 +50,19 @@ chat_interface = pn.chat.ChatInterface()
 from crewai.tasks.task_output import TaskOutput
 def print_output(output: TaskOutput):
     message = output.raw
-    chat_interface.send(message, user=output.agent, respond=False)
+    outputtype = type(message)
+    # chat_interface.send(, user=output.agent, respond=False)
+    if isinstance(output.pydantic, JiraOutputSchema):
+        message = f"Found {len(output.pydantic.results)} JIRA issues."
+        chat_interface.send(message, user=output.agent, respond=False)
+    elif isinstance(output.pydantic, ConfluenceOutputSchema):
+        message = f"Found {len(output.pydantic.results)} Confluence pages."
+        chat_interface.send(message, user=output.agent, respond=False)
+    elif isinstance(output.pydantic, CodeBaseAnalysis):
+        message = f"Found {len(output.pydantic.files)} code files."
+        chat_interface.send(message, user=output.agent, respond=False)
+    else:
+        chat_interface.send(message, user=output.agent, respond=False)
 
 @CrewBase
 class CriaCrew():
@@ -109,7 +121,7 @@ class CriaCrew():
             config=self.tasks_config['jira_search_task'], # type: ignore[index]
             output_pydantic=JiraOutputSchema,
             # async_execution=True
-            # callback=print_output
+            callback=print_output
         )
 
     @task
@@ -118,7 +130,7 @@ class CriaCrew():
             config=self.tasks_config['confluence_search_task'], # type: ignore[index]
             output_pydantic=ConfluenceOutputSchema,
             # async_execution=True
-            # callback=print_output
+            callback=print_output
         )
 
     @task
@@ -126,7 +138,8 @@ class CriaCrew():
         return Task(
             config=self.tasks_config['codebase_analysis_task'], # type: ignore[index]
             output_pydantic=CodeBaseAnalysis,
-            # callback=print_output,
+            context=[self.jira_search_task(), self.confluence_search_task()],
+            callback=print_output,
             # async_execution=True
         )
 

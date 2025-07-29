@@ -51,7 +51,7 @@ def code_embedding_flow(
     """
     Define an example flow that embeds files into a vector database.
     """
-    my_file_path = "C:/Projects/hackathon_cria/training-management-system"
+    local_file_path = "C:/Projects/hackathon_cria/training-management-system"
     ec2_file_path = "~/cria-crew-indexstore/training-management-system"
     panel_file_path = "~/panel_UI_cria/cria-crewai-indexstore/training-management-system"
     data_scope["files"] = flow_builder.add_source(
