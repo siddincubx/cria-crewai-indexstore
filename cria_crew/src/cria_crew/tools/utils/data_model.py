@@ -49,15 +49,50 @@ class VectorStore:
                 kwargs["filter"] = filter_dict
 
             results = self.index.query(**kwargs)
+            
+            # Extract matches from Pinecone results
+            matches = getattr(results, 'matches', [])
         
             return [
                 {
-                    "id": match["id"],
-                    "score": match["score"],
-                    "metadata": match.get("metadata", {})
+                    "id": getattr(match, 'id', match.get('id', '')),
+                    "score": getattr(match, 'score', match.get('score', 0.0)),
+                    "metadata": getattr(match, 'metadata', match.get('metadata', {}))
                 }
-                for match in results.get("matches", [])
+                for match in matches
             ]
         except Exception as e:
             logging.error(f"❌ Search failed: {e}")
             return []
+
+    def upsert_documents(self, documents: List[Dict[str, Any]]) -> None:
+        """Upsert documents to the vector store."""
+        try:
+            vectors = []
+            for doc in documents:
+                vector = self.embed_text(doc["text"])
+                sanitized_metadata = self._sanitize_metadata(doc["metadata"])
+                vectors.append({
+                    "id": doc["id"],
+                    "values": vector,
+                    "metadata": sanitized_metadata
+                })
+            
+            self.index.upsert(vectors=vectors)
+            logging.info(f"✅ Upserted {len(vectors)} documents to index '{self.index_name}'")
+        except Exception as e:
+            logging.error(f"❌ Failed to upsert documents: {e}")
+            raise
+
+    def get_index_stats(self) -> Dict[str, Any]:
+        """Get index statistics."""
+        try:
+            stats = self.index.describe_index_stats()
+            # Convert IndexDescription to dict if needed
+            if hasattr(stats, '__dict__'):
+                return stats.__dict__
+            else:
+                return {"total_vector_count": getattr(stats, 'total_vector_count', 0)}
+        except Exception as e:
+            logging.error(f"❌ Failed to get index stats: {e}")
+            return {}
